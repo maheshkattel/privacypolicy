@@ -48,7 +48,7 @@ $(document).ready(function(){
       }else if(diffStart>0){
         var h=Math.floor(diffStart/3600),m=Math.floor((diffStart%3600)/60),s=diffStart%60;
         var cd=(h>0?h+"h ":"")+(m<10?"0":"")+m+"m "+(s<10?"0":"")+s+"s";
-        t.parent().find("#matchs-hour").text(moment(d).format("LT"));
+        t.parent().find("#match-hour").text(moment(d).format("MMM D, LT"));
         t.parent().find(".matchs-date").html("⏱ "+cd).addClass("son");
         t.parents(".match-post").addClass("ch-son");
       }else if(diffEnd>0){
