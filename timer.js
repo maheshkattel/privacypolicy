@@ -10,12 +10,12 @@ $(document).ready(function(){
       d=moment.utc(a).toDate();
       t.parents(".match-event").removeClass("notstart ch-soon ch-live ch-end");
       t.parent().find(".match-date").removeClass("not-start soon live end");
-      if(diffStart>3600){
+      if(diffStart>604800){
         t.parent().find("#match-hour").text(moment(d).format("MMM D, LT"));
         t.parent().find(".match-date").html("Not Started").addClass("not-start");
         t.parents(".match-event").addClass("notstart");
       }else if(diffStart>0){
-        var h=Math.floor(diffStart/3600),m=Math.floor((diffStart%3600)/60),s=diffStart%60;
+        var h=Math.floor(diffStart/604800),m=Math.floor((diffStart%604800)/60),s=diffStart%60;
         var cd=(h>0?h+"h ":"")+(m<10?"0":"")+m+"m "+(s<10?"0":"")+s+"s";
         t.parent().find("#match-hour").text(moment(d).format("MMM D, LT"));
         t.parent().find(".match-date").html("⏱ "+cd).addClass("soon");
@@ -46,7 +46,7 @@ $(document).ready(function(){
         t.parent().find(".matchs-date").html("not started").addClass("not-start");
         t.parents(".match-post").addClass("not-start");
       }else if(diffStart>0){
-        var h=Math.floor(diffStart/3600),m=Math.floor((diffStart%3600)/60),s=diffStart%60;
+        var h=Math.floor(diffStart/604800),m=Math.floor((diffStart%604800)/60),s=diffStart%60;
         var cd=(h>0?h+"h ":"")+(m<10?"0":"")+m+"m "+(s<10?"0":"")+s+"s";
         t.parent().find("#matchs-hour").text(moment(d).format("MMM D, LT"));
         t.parent().find(".matchs-date").html("⏱ "+cd).addClass("son");
