@@ -15,8 +15,11 @@ $(document).ready(function(){
         t.parent().find(".match-date").html("Not Started").addClass("not-start");
         t.parents(".match-event").addClass("notstart");
       }else if(diffStart>0){
-        var h=Math.floor(diffStart/604800),m=Math.floor((diffStart%604800)/60),s=diffStart%60;
-        var cd=(h>0?h+"h ":"")+(m<10?"0":"")+m+"m "+(s<10?"0":"")+s+"s";
+        var days=Math.floor(diffStart/86400);
+        var hrs=Math.floor((diffStart%86400)/3600);
+        var mins=Math.floor((diffStart%3600)/60);
+        var secs=diffStart%60;
+        var cd=days>0 ? days+"d "+hrs+"h "+mins+"m" : hrs+"h "+mins+"m "+secs+"s";
         t.parent().find("#match-hour").text(moment(d).format("MMM D, LT"));
         t.parent().find(".match-date").html("⏱ "+cd).addClass("soon");
         t.parents(".match-event").addClass("ch-soon");
@@ -41,13 +44,16 @@ $(document).ready(function(){
       d=moment.utc(a).toDate();
       t.parents(".match-post").removeClass("not-start ch-son ch-lives ch-ends");
       t.parent().find(".matchs-date").removeClass("not-start son lives ends");
-      if(diffStart>1800){
+      if(diffStart>604800){
         t.parent().find("#matchs-hour").text(moment(d).format("MMM D, LT"));
         t.parent().find(".matchs-date").html("not started").addClass("not-start");
         t.parents(".match-post").addClass("not-start");
       }else if(diffStart>0){
-        var h=Math.floor(diffStart/604800),m=Math.floor((diffStart%604800)/60),s=diffStart%60;
-        var cd=(h>0?h+"h ":"")+(m<10?"0":"")+m+"m "+(s<10?"0":"")+s+"s";
+        var days=Math.floor(diffStart/86400);
+        var hrs=Math.floor((diffStart%86400)/3600);
+        var mins=Math.floor((diffStart%3600)/60);
+        var secs=diffStart%60;
+        var cd=days>0 ? days+"d "+hrs+"h "+mins+"m" : hrs+"h "+mins+"m "+secs+"s";
         t.parent().find("#matchs-hour").text(moment(d).format("MMM D, LT"));
         t.parent().find(".matchs-date").html("⏱ "+cd).addClass("son");
         t.parents(".match-post").addClass("ch-son");
