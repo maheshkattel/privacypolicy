@@ -1,4 +1,7 @@
 $(document).ready(function(){
+   // ADD THIS LINE FIRST:
+  $("[id='result-now']").each(function(){ if($(this).text().includes("undefined")) $(this).text(""); });
+  
   function run(){
     $(".match-event .match-date").each(function(){
       var t=$(this),a=t.data("start"),e=t.data("gameends"),
