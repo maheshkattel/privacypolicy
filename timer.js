@@ -1,6 +1,6 @@
 $(document).ready(function(){
    // ADD THIS LINE FIRST:
-  $("[id='result-now']").each(function(){ if($(this).text().includes("undefined")) $(this).text(""); });
+  $("[id='result-now']").each(function(){ if($(this).text().includes("undefined")) $(this).text("-"); });
   
   function run(){
     $(".match-event .match-date").each(function(){
